@@ -1,15 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+}
+
 body {
     overflow: hidden;
     font-family: 'Noto Sans', sans-serif;
 }
 
 model-viewer {
-    width: 1600px;
-    height: 900px;
-    margin: 0 auto;
+    z-index: 99999;
+    width: 100%;
+    height: 100vh;
+    top: 0px; 
+    position: sticky;
+    background-color:transparent;
 }
 
 button {
     background-color: #ffffff !important;
     border-color: transparent !important;
+}
+
+.navbar {
+    z-index:10000
+}
+
+.cover-up{
+    z-index: 999 !important;
+    color: white !important;
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background-color: black;
 }

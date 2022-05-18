@@ -20,6 +20,7 @@
 
     <!-- model-viewer script -->
     <script type="module" src="https://unpkg.com/@google/model-viewer@1.8.0/dist/model-viewer.min.js"></script>
+    <script type="module" src="js/cameraControlsModel.js"></script>
 
     <title>세포소기관</title>
 </head>
@@ -34,53 +35,69 @@
         </div>
     </nav>
 
-    <model-viewer id="model-viewer" bounds="tight" enable-pan src="animalcellCOLOR.glb" ar ar-modes="webxr scene-viewer quick-look"
-        camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="0.93" shadow-softness="0.5"
-        exposure="1.43" camera-orbit="33.67deg 50.85deg auto">
-        <button class="Hotspot btn btn-outline-primary" slot="hotspot-1"
+    <div class="cover-up">
+        <br>
+        <br>
+        <br>
+        <br>
+
+        hello world
+    </div>
+
+    <model-viewer id="model-viewer" bounds="tight" enable-pan src="animalcellCOLOR.glb" ar
+        ar-modes="webxr scene-viewer quick-look" camera-controls environment-image="neutral" poster="poster.webp"
+        shadow-intensity="0.93" shadow-softness="0.5" exposure="1.43" camera-orbit="33.67deg 50.85deg auto" auto-rotate>
+        <button class="Hotspot btn btn-outline-primary" slot="hotspot-1" id="hotspot-1"
             data-position="0.95011743652142m -0.22487195174554056m 1.782292984662343m"
-            data-normal="0.6669883716555383m 0.07111225619042627m 0.741666743959712m"
-            data-visibility-attribute="visible">
+            data-normal="0.6669883716555383m 0.07111225619042627m 0.741666743959712m" data-visibility-attribute="visible"
+            data-orbit="-30.94862deg 44.56856deg 0.86545582m"
+            data-target="0.95011743652142m -0.22487195174554056m 1.782292984662343m" data-fov="32.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">골지체</div>
         </button>
         <button class="Hotspot btn btn-outline-primary" slot="hotspot-2"
             data-position="-0.3416290999015199m 0.11237341363253003m 3.3248129052136335m"
-            data-normal="0.956087870564473m 0.2780146724672068m 0.09275680919718658m"
-            data-visibility-attribute="visible">
+            data-normal="0.956087870564473m 0.2780146724672068m 0.09275680919718658m" data-visibility-attribute="visible"
+            data-orbit="-30.94862deg 44.56856deg 0.86545582m"
+            data-target="-0.3416290999015199m 0.11237341363253003m 3.3248129052136335m" data-fov="30.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">미토콘드리아</div>
         </button>
         <button class="Hotspot btn btn-outline-primary" slot="hotspot-3"
             data-position="-0.8014701221257022m -0.020326204159254707m 1.167369027030933m"
             data-normal="-0.1431078726028359m 0m 0.9897070964679857m" data-visibility-attribute="visible"
-            data-orbit="-20.94862deg 64.56856deg 0.86545582m" data-target="0.03323465608204483m 1.7456965277218954m 0.9633126732252862m" data-fov="22.91deg">
+            data-orbit="-30.94862deg 44.56856deg 0.86545582m"
+            data-target="-0.8014701221257022m -0.020326204159254707m 1.167369027030933m" data-fov="42.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">소포체</div>
         </button>
         <button class="Hotspot btn btn-outline-primary" slot="hotspot-4"
-            data-position="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m" data-normal="0m 1m 0m"
-            data-visibility-attribute="visible">
+            data-position="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m" 
+            data-normal="0m 1m 0m" data-visibility-attribute="visible"
+            data-orbit="-20.94862deg 64.56856deg 0.86545582m"
+            data-target="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m"
+            data-fov="30.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">핵</div>
         </button>
-        <div class="progress-bar hide" slot="progress-bar">
-            <div class="update-bar"></div>
-        </div>
     </model-viewer>
+
+    <script>
+        const mv = document.querySelector("#model-viewer");
+        let flag = 0;
+        const annotationClicked = (a) => {
+            let ds = a.parentNode.dataset;
+            mv.cameraTarget = ds.target;
+            mv.cameraOrbit = ds.orbit;
+            if (ds.fov !== undefined) mv.fieldOfView = ds.fov;
+            if (flag === 1) {
+                flag = 0;
+                mv.cameraTarget = "auto auto auto";
+                mv.cameraOrbit = "33.67deg 50.85deg auto";
+            } else flag = 1;
+        };
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" q
         crossorigin="anonymous"></script>
 </body>
-<script>
-    const mv = document.querySelector("#model-viewer");
-    const annotationClicked = (a) => {
-        let ds = a.parentNode.dataset;
-        mv.cameraTarget = ds.target;
-        mv.cameraOrbit = ds.orbit;
-        if (ds.fov !== undefined)
-            mv.fieldOfView = ds.fov;
-    }
-</script>
-<script type="module" src="js/cameraControlsModel.js"></script>
-<script type="module" src="js/main.js"></script>
 
 </html>
 
