@@ -35,13 +35,14 @@
         </div>
     </nav>
 
-    <div class="cover-up">
+    <div class="cover-up" style="float:left;">
         <br>
         <br>
         <br>
         <br>
-
-        hello world
+        <div style="width:50%">
+            hello world
+        </div>
     </div>
 
     <model-viewer id="model-viewer" bounds="tight" enable-pan src="animalcellCOLOR.glb" ar
@@ -49,15 +50,15 @@
         shadow-intensity="0.93" shadow-softness="0.5" exposure="1.43" camera-orbit="33.67deg 50.85deg auto" auto-rotate>
         <button class="Hotspot btn btn-outline-primary" slot="hotspot-1" id="hotspot-1"
             data-position="0.95011743652142m -0.22487195174554056m 1.782292984662343m"
-            data-normal="0.6669883716555383m 0.07111225619042627m 0.741666743959712m" data-visibility-attribute="visible"
-            data-orbit="-30.94862deg 44.56856deg 0.86545582m"
+            data-normal="0.6669883716555383m 0.07111225619042627m 0.741666743959712m"
+            data-visibility-attribute="visible" data-orbit="-30.94862deg 44.56856deg 0.86545582m"
             data-target="0.95011743652142m -0.22487195174554056m 1.782292984662343m" data-fov="32.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">골지체</div>
         </button>
         <button class="Hotspot btn btn-outline-primary" slot="hotspot-2"
             data-position="-0.3416290999015199m 0.11237341363253003m 3.3248129052136335m"
-            data-normal="0.956087870564473m 0.2780146724672068m 0.09275680919718658m" data-visibility-attribute="visible"
-            data-orbit="-30.94862deg 44.56856deg 0.86545582m"
+            data-normal="0.956087870564473m 0.2780146724672068m 0.09275680919718658m"
+            data-visibility-attribute="visible" data-orbit="-30.94862deg 44.56856deg 0.86545582m"
             data-target="-0.3416290999015199m 0.11237341363253003m 3.3248129052136335m" data-fov="30.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">미토콘드리아</div>
         </button>
@@ -69,11 +70,9 @@
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">소포체</div>
         </button>
         <button class="Hotspot btn btn-outline-primary" slot="hotspot-4"
-            data-position="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m" 
-            data-normal="0m 1m 0m" data-visibility-attribute="visible"
-            data-orbit="-20.94862deg 64.56856deg 0.86545582m"
-            data-target="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m"
-            data-fov="30.91deg">
+            data-position="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m" data-normal="0m 1m 0m"
+            data-visibility-attribute="visible" data-orbit="-20.94862deg 64.56856deg 0.86545582m"
+            data-target="-0.2281685707136245m 0.17960081110567927m -0.008644277870796468m" data-fov="30.91deg">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">핵</div>
         </button>
     </model-viewer>
@@ -87,10 +86,14 @@
             mv.cameraOrbit = ds.orbit;
             if (ds.fov !== undefined) mv.fieldOfView = ds.fov;
             if (flag === 1) {
+                mv.style.width = "100%";
                 flag = 0;
                 mv.cameraTarget = "auto auto auto";
                 mv.cameraOrbit = "33.67deg 50.85deg auto";
-            } else flag = 1;
+            } else {
+                flag = 1;
+                mv.style.width = "50%";
+            }
         };
     </script>
 
