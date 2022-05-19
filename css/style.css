@@ -15,7 +15,7 @@ model-viewer {
     top: 0px; 
     position: sticky;
     background-color:transparent;
-    transition: width 1s;
+    transition: width 1s !important;
 }
 
 button {
