@@ -4,18 +4,26 @@
 }
 
 body {
-    overflow: hidden;
     font-family: 'Noto Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 model-viewer {
-    z-index: 99999;
-    width: 100%;
+    width: 1000px;
     height: 100vh;
     top: 0px; 
-    position: sticky;
     background-color:transparent;
-    transition: width 1s !important;
+    float: left;
+    margin: 0;
+}
+
+.container {
+    display: block;
+    width: 400px;
+    height: 100000px;
+    background: black;
+    float: left;
+    margin: 0;
 }
 
 button {
@@ -24,23 +32,3 @@ button {
 }
 
 button:focus {outline:none!important;}
-
-.navbar {
-    z-index:10000
-}
-
-.cover-up{
-    z-index: 999 !important;
-    color: white !important;
-    position:fixed;
-    padding:0;
-    margin:0;
-
-    top:0;
-    left:0;
-
-    width: 100%;
-    height: 100%;
-    background-color: black;
-}
-

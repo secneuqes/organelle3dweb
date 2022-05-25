@@ -26,53 +26,17 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="img/cell.png" width="30" height="30" class="d-inline-block align-text-top">
-                ORGANELLE
-            </a>
-        </div>
-    </nav> -->
+    <div class="container"></div>
 
-    <!--
-    <div class="cover-up" style="float:left;">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div>
-            hello world
-        </div>
-    </div> -->
-
-    <model-viewer id="model-viewer" bounds="tight" enable-pan src="/3d/model.glb" ar
-        ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1.12"
-        camera-orbit="33.67deg 50.85deg auto" auto-rotate>
+    <model-viewer id="model-viewer" bounds="tight" src="3d/model.glb" disable-zoom
+        poster="poster.webp" shadow-intensity="1.12"
+        camera-orbit="calc(-1.5rad + env(window-scroll-y) * 38rad) calc(-1.5rad + env(window-scroll-y) * 38rad) calc(3m - env(window-scroll-y) * 15m)"
+        camera-target="auto auto auto">
     </model-viewer>
 
-    <script>
-        const mv = document.querySelector("#model-viewer");
-        let flag = 0;
-        const annotationClicked = (a) => {
-            let ds = a.parentNode.dataset;
-            mv.cameraTarget = ds.target;
-            mv.cameraOrbit = ds.orbit;
-            if (ds.fov !== undefined) mv.fieldOfView = ds.fov;
-            if (flag === 1) {
-                mv.style.width = "100%";
-                flag = 0;
-                mv.cameraTarget = "auto auto auto";
-                mv.cameraOrbit = "33.67deg 50.85deg auto";
-            } else {
-                flag = 1;
-                mv.style.width = "50%";
-            }
-        };
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" q
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
         crossorigin="anonymous"></script>
 </body>
 
