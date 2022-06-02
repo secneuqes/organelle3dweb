@@ -21,22 +21,72 @@
     <!-- model-viewer script -->
     <script type="module" src="https://unpkg.com/@google/model-viewer@1.8.0/dist/model-viewer.min.js"></script>
     <script type="module" src="js/cameraControlsModel.js"></script>
-
+    
     <title>세포소기관</title>
 </head>
 
 <body>
-    <div class="container"></div>
-
-    <model-viewer id="model-viewer" bounds="tight" src="3d/model.glb" disable-zoom
-        poster="poster.webp" shadow-intensity="1.12"
-        camera-orbit="calc(-1.5rad + env(window-scroll-y) * 38rad) calc(-1.5rad + env(window-scroll-y) * 38rad) calc(3m - env(window-scroll-y) * 15m)"
-        camera-target="auto auto auto">
+    <model-viewer id="model-viewer" bounds="tight" enable-pan src="3d/model.glb" camera-controls
+        environment-image="neutral" poster="poster.webp" shadow-intensity="1" auto-rotate
+        camera-orbit="35.19deg 51.2deg auto">
+        <button class="Hotspot" slot="hotspot-1"
+            data-position="0.003921806399141704m 0.05369579796371556m 0.021941546363745432m"
+            data-normal="0.06020004289134885m 0.7089052354147348m 0.7027299068898799m"
+            data-orbit="-30.94862deg 44.56856deg 0.86545582m"
+            data-target="0.003921806399141704m 0.05369579796371556m 0.021941546363745432m" data-fov="12.91deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">미토콘드리아</div>
+        </button><button class="Hotspot" slot="hotspot-3"
+            data-position="0.024335938538530846m 0.05799155139408506m 0.014400766309876693m"
+            data-normal="-0.031050232494914322m 0.998993332599271m -0.032375986227664064m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">골지체</div>
+        </button><button class="Hotspot" slot="hotspot-5"
+            data-position="-0.04289103596259789m 0.062361264419335836m 0.013179216546743276m"
+            data-normal="-0.6353111584436935m 0.08657687390360598m -0.7673878920480904m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">매끈면 소포체</div>
+        </button><button class="Hotspot" slot="hotspot-7"
+            data-position="-0.009463817652688167m 0.04524378187953379m 0.02846453538800581m"
+            data-normal="0.8293278199998948m 0.4071170203680585m 0.38271542783229434m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">중심체</div>
+        </button><button class="Hotspot" slot="hotspot-9"
+            data-position="-0.0038637913005426573m 0.06604332459228629m -0.010901798203560006m"
+            data-normal="-0.30775497347478487m 0.8855532565651817m 0.34796882919068484m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">핵</div>
+        </button><button class="Hotspot" slot="hotspot-10"
+            data-position="-0.01093681392089211m 0.0577694273744404m 0.006794987272678066m"
+            data-normal="-0.36624215838297935m 0.4805451234420318m 0.7968331480046867m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">거친면 소포체</div>
+        </button>
     </model-viewer>
 
 
+    <script>
+        const mv = document.querySelector("#model-viewer");
+        let flag = 0;
+        const annotationClicked = (a) => {
+            let ds = a.parentNode.dataset;
+            mv.cameraTarget = ds.target;
+            mv.cameraOrbit = ds.orbit;
+            if (ds.fov !== undefined) mv.fieldOfView = ds.fov;
+            if (flag === 1) {
+                flag = 0;
+                mv.cameraTarget = "auto auto auto";
+                mv.cameraOrbit = "33.67deg 50.85deg auto";
+            } else {
+                flag = 1;
+            }
+            
+        };
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
 
