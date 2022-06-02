@@ -6,6 +6,7 @@
 body {
     font-family: 'Noto Sans', sans-serif;
     overflow-x: hidden;
+    background: #D0C9C0;
 }
 
 model-viewer {
@@ -14,21 +15,71 @@ model-viewer {
     top: 0px; 
     background-color:transparent;
     margin: 0 auto;
-
 }
 
-.container {
-    display: block;
-    width: 400px;
-    height: 100000px;
-    background: black;
-    float: left;
-    margin: 0;
+.HotspotAnnotation {
+    display: inline;    
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
 }
 
 button {
-    background-color: #ffffff !important;
-    border-color: transparent !important;
+    margin: 20px !important;
+    outline: none !important;
+    border-radius: 5px;
 }
 
-button:focus {outline:none!important;}
+.custom-btn {
+    width: 100px !important;
+    height: 30px !important;
+    padding: 10px 5px !important;
+    border: 2px solid #000 !important;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 500 !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    display: inline-block !important;
+    font-size: 13px
+}
+  
+.btn-5 {
+  background: #EFEAD8 !important;
+  color: #5F7161 !important;
+  line-height: 42px !important;
+  padding: 0 !important;
+  border: none !important;
+}
+.btn-5:hover {
+  background: #6D8B74 !important;
+  color: #EFEAD8 !important;
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001 !important;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'' !important;
+  position:absolute !important;
+  top:0 !important;
+  right:0 !important;
+  height:2px !important;
+  width:0 !important;
+  background: #fff !important;
+  transition:400ms ease all !important;
+}
+.btn-5:after{
+  right:inherit !important;
+  top:inherit !important;
+  left:0 !important;
+  bottom:0 !important;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100% !important;
+  transition:800ms ease all !important;
+}
