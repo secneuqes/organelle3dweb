@@ -26,10 +26,9 @@
 </head>
 
 <body>
-
     <model-viewer id="model-viewer" bounds="tight" enable-pan src="3d/model2.glb" camera-controls ar
         ar-modes="webxr scene-viewer quick-look" shadow-intensity="0.93" shadow-softness="0.5" exposure="1.43"
-        environment-image="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="35.19deg 51.2deg auto">
+        environment-image="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="35.19deg 51.2deg auto" field-of-view="90deg">
         <div class="container-btn">
             <label class="rot-info">AUTO-ROTATION</label>
             <input class="tgl tgl-skewed" id="cb3" type="checkbox" onclick="rotationOn(this)" />
@@ -123,6 +122,7 @@
             });
 
             modal.setStyle({
+                animation: 'fadeIn 1s',
                 position: 'fixed',
                 display: 'block',
                 boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
@@ -144,7 +144,6 @@
             for (var k in styles) this.style[k] = styles[k];
             return this;
         };
-
         const mv = document.querySelector("#model-viewer");
         let flag = 0;
         const annotationClicked = (a) => {
@@ -156,6 +155,7 @@
                 flag = 0;
                 mv.cameraTarget = "auto auto auto";
                 mv.cameraOrbit = "33.67deg 50.85deg auto";
+                mv.fieldOfView = "90deg";
             } else {
                 setTimeout(() => modal('my_modal'), 500);
                 flag = 1;
@@ -169,11 +169,6 @@
             } else {
                 document.getElementById("model-viewer").removeAttribute("auto-rotate");
             }
-        }
-
-        function sleep(ms) {
-            const wakeUpTime = Date.now() + ms;
-            while (Date.now() < wakeUpTime) {}
         }
     </script>
 

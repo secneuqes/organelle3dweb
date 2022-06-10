@@ -52,6 +52,21 @@
         <div class="container"></div>
     </div>
 
+    <script>
+        /**
+* 모바일 페이지 강제 이동
+*/
+        //Mobile여부를 구분하기 위함
+        var uAgent = navigator.userAgent.toLowerCase();
+        // 아래는 모바일 장치들의 모바일 페이지 접속을위한 스크립트
+        var mobilePhones = new Array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
+        for (var i = 0; i < mobilePhones.length; i++) {
+            if (uAgent.indexOf(mobilePhones[i]) != -1) {
+                alert("모바일 접속은 지원하지 않습니다.");
+                location.href = "/";
+            }
+        };
+    </script>
     <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body>
 
