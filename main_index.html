@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- cache 사용하지 않음 -->
+    <meta http-equiv="Cache-Control" content="no-cache">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- google font fammily -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- model-viewer script -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer@1.8.0/dist/model-viewer.min.js"></script>
+    <script type="module" src="js/cameraControlsModel.js"></script>
+    
+    <title>세포소기관</title>
+</head>
+
+<body>
+    <model-viewer id="model-viewer" bounds="tight" enable-pan src="3d/model2.glb" camera-controls
+        ar ar-modes="webxr scene-viewer quick-look"
+        shadow-intensity="0.93" shadow-softness="0.5" exposure="1.43"
+        environment-image="neutral" poster="poster.webp" shadow-intensity="1"
+        camera-orbit="35.19deg 51.2deg auto" auto-rotate>
+        <button class="Hotspot custom-btn btn-5" slot="hotspot-1"
+            data-position="189.82302905779858m 2789.911154386773m 1087.5891790401872m"
+            data-normal="0.06020004289134885m 0.7089052354147348m 0.7027299068898799m"
+            data-orbit="358.2deg 43.07deg 0.096545582m"
+            data-target="189.82302905779858m 2789.911154386773m 1087.5891790401872m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">미토콘드리아</div>
+        </button><button class="Hotspot custom-btn btn-5" slot="hotspot-3"
+            data-position="-2184.052261477944m 3499.5856419424417m 571.147698710288m"
+            data-normal="0.9369200251744033m -0.317616220745493m 0.14594794533170374m"
+            data-orbit="441.7deg 60.01deg 0.096545582m"
+            data-target="-2184.052261477944m 3499.5856419424417m 571.147698710288m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">매끈면 소포체</div>
+        </button><button class="Hotspot custom-btn btn-5" slot="hotspot-5"
+            data-position="1384.6999530336432m 2956.047245262934m 587.7081487509245m"
+            data-normal="-0.6353111584436935m 0.08657687390360598m -0.7673878920480904m"
+            data-orbit="384.8deg 54.37deg 0.096545582m"
+            data-target="1384.6999530336432m 2956.047245262934m 587.7081487509245m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">골지체</div>
+        </button><button class="Hotspot custom-btn btn-5" slot="hotspot-7"
+            data-position="-540.0173133248876m 2676.490353155124m 1477.1344298834563m"
+            data-normal="0.11587049363405208m -0.7425295690009948m 0.6597149898738077m"
+            data-orbit="355deg 36.21deg 0.096545582m"
+            data-target="-540.0173133248876m 2676.490353155124m 1477.1344298834563m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">중심체</div>
+        </button><button class="Hotspot custom-btn btn-5" slot="hotspot-9"
+            data-position="-73.46750390051312m 2942.3074998069924m 501.8367404936953m"
+            data-normal="0.20349146384946035m -0.7428547260958062m 0.6377758854468619m"
+            data-orbit="367.1deg 36.62deg 0.096545582m"
+            data-target="-73.46750390051312m 2942.3074998069924m 501.8367404936953m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">거친면 소포체</div>
+        </button><button class="Hotspot custom-btn btn-5" slot="hotspot-10"
+            data-position="-310.82608663327136m 3424.3991649180048m -587.7620966837194m"
+            data-normal="0.4641933147898059m -0.8341903195890408m 0.2977433075795096m"
+            data-orbit="338deg 64.45deg 0.096545582m"
+            data-target="-310.82608663327136m 3424.3991649180048m -587.7620966837194m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">핵</div>
+        </button>
+        <button class="Hotspot custom-btn btn-5" slot="hotspot-11" 
+            data-position="1161.220724779113m 2957.683147511572m -1619.3635864726914m"
+            data-normal="0.8509694331780135m -0.4960230804876165m 0.1726618875729841m"
+            data-orbit="440.1deg 42.67deg 0.096545582m"
+            data-target="1161.220724779113m 2957.683147511572m -1619.3635864726914m"
+            data-fov="0.01deg"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation" onclick="annotationClicked(this)">리보솜</div>
+        </button>
+    </model-viewer>
+
+
+    <script>
+        const mv = document.querySelector("#model-viewer");
+        let flag = 0;
+        const annotationClicked = (a) => {
+            let ds = a.parentNode.dataset;
+            mv.cameraTarget = ds.target;
+            mv.cameraOrbit = ds.orbit;
+            if (ds.fov !== undefined) mv.fieldOfView = ds.fov;
+            if (flag === 1) {
+                flag = 0;
+                mv.cameraTarget = "auto auto auto";
+                mv.cameraOrbit = "33.67deg 50.85deg auto";
+            } else flag = 1;
+        };
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!-- 
+정해야하는 값: data-orbit, data-target, data-fov
+    data-orbit="-20.94862deg 64.56856deg 0.86545582m" data-target="0.03323465608204483m 1.7456965277218954m 0.9633126732252862m" data-fov="22.91deg"
+-->
