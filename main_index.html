@@ -21,78 +21,130 @@
     <!-- model-viewer script -->
     <script type="module" src="https://unpkg.com/@google/model-viewer@1.8.0/dist/model-viewer.min.js"></script>
     <script type="module" src="js/cameraControlsModel.js"></script>
-    
+
     <title>세포소기관</title>
 </head>
 
 <body>
-    <model-viewer id="model-viewer" bounds="tight" enable-pan src="3d/model2.glb" camera-controls
-        ar ar-modes="webxr scene-viewer quick-look"
-        shadow-intensity="0.93" shadow-softness="0.5" exposure="1.43"
-        environment-image="neutral" poster="poster.webp" shadow-intensity="1"
-        camera-orbit="35.19deg 51.2deg auto" auto-rotate>
+
+    <model-viewer id="model-viewer" bounds="tight" enable-pan src="3d/model2.glb" camera-controls ar
+        ar-modes="webxr scene-viewer quick-look" shadow-intensity="0.93" shadow-softness="0.5" exposure="1.43"
+        environment-image="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="35.19deg 51.2deg auto">
+        <div class="container-btn">
+            <label class="rot-info">AUTO-ROTATION</label>
+            <input class="tgl tgl-skewed" id="cb3" type="checkbox" onclick="rotationOn(this)" />
+            <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb3"></label>
+        </div>
         <button class="Hotspot custom-btn btn-5" slot="hotspot-1"
             data-position="189.82302905779858m 2789.911154386773m 1087.5891790401872m"
             data-normal="0.06020004289134885m 0.7089052354147348m 0.7027299068898799m"
             data-orbit="358.2deg 43.07deg 0.096545582m"
-            data-target="189.82302905779858m 2789.911154386773m 1087.5891790401872m"
-            data-fov="0.01deg"
+            data-target="189.82302905779858m 2789.911154386773m 1087.5891790401872m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">미토콘드리아</div>
         </button><button class="Hotspot custom-btn btn-5" slot="hotspot-3"
             data-position="-2184.052261477944m 3499.5856419424417m 571.147698710288m"
             data-normal="0.9369200251744033m -0.317616220745493m 0.14594794533170374m"
             data-orbit="441.7deg 60.01deg 0.096545582m"
-            data-target="-2184.052261477944m 3499.5856419424417m 571.147698710288m"
-            data-fov="0.01deg"
+            data-target="-2184.052261477944m 3499.5856419424417m 571.147698710288m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">매끈면 소포체</div>
         </button><button class="Hotspot custom-btn btn-5" slot="hotspot-5"
             data-position="1384.6999530336432m 2956.047245262934m 587.7081487509245m"
             data-normal="-0.6353111584436935m 0.08657687390360598m -0.7673878920480904m"
             data-orbit="384.8deg 54.37deg 0.096545582m"
-            data-target="1384.6999530336432m 2956.047245262934m 587.7081487509245m"
-            data-fov="0.01deg"
+            data-target="1384.6999530336432m 2956.047245262934m 587.7081487509245m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">골지체</div>
         </button><button class="Hotspot custom-btn btn-5" slot="hotspot-7"
             data-position="-540.0173133248876m 2676.490353155124m 1477.1344298834563m"
             data-normal="0.11587049363405208m -0.7425295690009948m 0.6597149898738077m"
             data-orbit="355deg 36.21deg 0.096545582m"
-            data-target="-540.0173133248876m 2676.490353155124m 1477.1344298834563m"
-            data-fov="0.01deg"
+            data-target="-540.0173133248876m 2676.490353155124m 1477.1344298834563m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">중심체</div>
         </button><button class="Hotspot custom-btn btn-5" slot="hotspot-9"
             data-position="-73.46750390051312m 2942.3074998069924m 501.8367404936953m"
             data-normal="0.20349146384946035m -0.7428547260958062m 0.6377758854468619m"
             data-orbit="367.1deg 36.62deg 0.096545582m"
-            data-target="-73.46750390051312m 2942.3074998069924m 501.8367404936953m"
-            data-fov="0.01deg"
+            data-target="-73.46750390051312m 2942.3074998069924m 501.8367404936953m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">거친면 소포체</div>
         </button><button class="Hotspot custom-btn btn-5" slot="hotspot-10"
             data-position="-310.82608663327136m 3424.3991649180048m -587.7620966837194m"
             data-normal="0.4641933147898059m -0.8341903195890408m 0.2977433075795096m"
             data-orbit="338deg 64.45deg 0.096545582m"
-            data-target="-310.82608663327136m 3424.3991649180048m -587.7620966837194m"
-            data-fov="0.01deg"
+            data-target="-310.82608663327136m 3424.3991649180048m -587.7620966837194m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">핵</div>
         </button>
-        <button class="Hotspot custom-btn btn-5" slot="hotspot-11" 
+        <button class="Hotspot custom-btn btn-5" slot="hotspot-11"
             data-position="1161.220724779113m 2957.683147511572m -1619.3635864726914m"
             data-normal="0.8509694331780135m -0.4960230804876165m 0.1726618875729841m"
             data-orbit="440.1deg 42.67deg 0.096545582m"
-            data-target="1161.220724779113m 2957.683147511572m -1619.3635864726914m"
-            data-fov="0.01deg"
+            data-target="1161.220724779113m 2957.683147511572m -1619.3635864726914m" data-fov="0.01deg"
             data-visibility-attribute="visible">
             <div class="HotspotAnnotation" onclick="annotationClicked(this)">리보솜</div>
         </button>
     </model-viewer>
 
+    <div id="my_modal">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita dolore eveniet laborum repellat sit distinctio, ipsa rem dicta alias velit? Repellat doloribus mollitia dolorem voluptatum ex
+        reiciendis aut in incidunt?
+        <a class="modal_close_btn">❌</a>
+    </div>
+
+    <button id="popup_open_btn">팝업창 띄어 줘염</button>
 
     <script>
+        function modal(id) {
+            var zIndex = 99999;
+            var modal = document.getElementById(id);
+
+            // 모달 div 뒤에 희끄무레한 레이어
+            var bg = document.createElement('div');
+            bg.setStyle({
+                position: 'fixed',
+                zIndex: zIndex,
+                left: '0px',
+                top: '0px',
+                width: '100%',
+                height: '100%',
+                overflow: 'auto',
+                // 레이어 색갈은 여기서 바꾸면 됨
+                backgroundColor: 'rgba(0,0,0,0.4)'
+            });
+            document.body.append(bg);
+
+            // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+            modal.querySelector('.modal_close_btn').addEventListener('click', function () {
+                bg.remove();
+                modal.style.display = 'none';
+            });
+
+            modal.setStyle({
+                position: 'fixed',
+                display: 'block',
+                boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+                // 시꺼먼 레이어 보다 한칸 위에 보이기
+                zIndex: zIndex + 1,
+
+                // div center 정렬
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                msTransform: 'translate(-50%, -50%)',
+                webkitTransform: 'translate(-50%, -50%)'
+            });
+        }
+
+        // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+        Element.prototype.setStyle = function (styles) {
+            for (var k in styles) this.style[k] = styles[k];
+            return this;
+        };
+
         const mv = document.querySelector("#model-viewer");
         let flag = 0;
         const annotationClicked = (a) => {
@@ -104,8 +156,25 @@
                 flag = 0;
                 mv.cameraTarget = "auto auto auto";
                 mv.cameraOrbit = "33.67deg 50.85deg auto";
-            } else flag = 1;
+            } else {
+                setTimeout(() => modal('my_modal'), 500);
+                flag = 1;
+            }
         };
+
+        const rotationOn = (cb) => {
+            console.log(cb.checked);
+            if (cb.checked === true) {
+                document.getElementById("model-viewer").setAttribute("auto-rotate", "");
+            } else {
+                document.getElementById("model-viewer").removeAttribute("auto-rotate");
+            }
+        }
+
+        function sleep(ms) {
+            const wakeUpTime = Date.now() + ms;
+            while (Date.now() < wakeUpTime) {}
+        }
     </script>
 
 
