@@ -15,7 +15,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- model-viewer script -->
@@ -33,6 +39,8 @@
             <label class="rot-info">AUTO-ROTATION</label>
             <input class="tgl tgl-skewed" id="cb3" type="checkbox" onclick="rotationOn(this)" />
             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb3"></label>
+            <button class="home-btn" onclick="returnHome()"><i class="fa fa-home"></i></button>
+            <label class="home-info">HOME-POSITION</label>
         </div>
         <button class="Hotspot custom-btn btn-5" slot="hotspot-1"
             data-position="189.82302905779858m 2789.911154386773m 1087.5891790401872m"
@@ -88,12 +96,11 @@
     </model-viewer>
 
     <div id="my_modal">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita dolore eveniet laborum repellat sit distinctio, ipsa rem dicta alias velit? Repellat doloribus mollitia dolorem voluptatum ex
-        reiciendis aut in incidunt?
+        <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita dolore eveniet laborum repellat sit distinctio, ipsa rem dicta alias velit? Repellat doloribus mollitia dolorem voluptatum ex
+        reiciendis aut in incidunt? -->
+        <div id="modal-text-content"></div>
         <a class="modal_close_btn">❌</a>
     </div>
-
-    <button id="popup_open_btn">팝업창 띄어 줘염</button>
 
     <script>
         function modal(id) {
@@ -144,9 +151,20 @@
             for (var k in styles) this.style[k] = styles[k];
             return this;
         };
+
         const mv = document.querySelector("#model-viewer");
+
         let flag = 0;
+
+        const returnHome = () => {
+            mv.cameraTarget = "auto auto auto";
+            mv.cameraOrbit = "33.67deg 50.85deg auto";
+            mv.fieldOfView = "90deg";
+            flag = 0;
+        }
+
         const annotationClicked = (a) => {
+            // camera
             let ds = a.parentNode.dataset;
             mv.cameraTarget = ds.target;
             mv.cameraOrbit = ds.orbit;
@@ -157,8 +175,23 @@
                 mv.cameraOrbit = "33.67deg 50.85deg auto";
                 mv.fieldOfView = "90deg";
             } else {
-                setTimeout(() => modal('my_modal'), 500);
                 flag = 1;
+                setTimeout(() => modal('my_modal'), 500);
+                // console.log(a.textContent); -> text content;
+                // 여기에 모달 content 조정할 내용;
+                clicked = a.textContent;
+                if (clicked === "핵") {
+                    // document.getElementById("modal-text-content").textContent = "세포핵은 모든 진핵생물에서 발견할 수 있는 세포 내의 기관 염색체를 구성하는 다양한 단백질 복합체로 된 긴 선형의 DNA로 된 유전자중 대부분의 정보를 담고 있다.  유전자가 변형되지 않게 유지하고 유전자 발현을 조절함으로써 세포의 활성을 조절하는 역할을 하며 세포 분열과 유전에 관여한다. 공 모양이거나 타원 모양인 경우가 많다. 크기는 지름이 수μm(마이크로미터)에서 20~30μm 정도가 보통이다. 핵은 안팎 2층으로 이루어진 핵막으로 둘러싸여 있고, 여기에 핵공이라는 다수의 구멍이 있는 것으로 알려져 있다. ";
+                    let str = `<div>
+                        <h3>세포핵</h3>
+                        세포핵은 모든 진핵생물에서 발견할 수 있는 세포 내의 기관 염색체를 구성하는 다양한 단백질 복합체로 된 긴 선형의 DNA로 된 유전자중 대부분의 정보를 담고 있다.  유전자가 변형되지 않게 유지하고 유전자 발현을 조절함으로써 세포의 활성을 조절하는 역할을 하며 세포 분열과 유전에 관여한다. 공 모양이거나 타원 모양인 경우가 많다. 크기는 지름이 수μm(마이크로미터)에서 20~30μm 정도가 보통이다. 핵은 안팎 2층으로 이루어진 핵막으로 둘러싸여 있고, 여기에 핵공이라는 다수의 구멍이 있는 것으로 알려져 있다.
+                    </div>`;
+                    changeContent(str);
+                    
+                }
+                if (clicked === "리보솜"){
+                    document.getElementById("modal-text-content").textContent =" ";
+                }
             }
         };
 
@@ -169,6 +202,10 @@
             } else {
                 document.getElementById("model-viewer").removeAttribute("auto-rotate");
             }
+        }
+
+        const changeContent = (str) => {
+            document.getElementById("modal-text-content").insertAdjacentHTML('beforeend', str);
         }
     </script>
 

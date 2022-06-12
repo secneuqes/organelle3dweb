@@ -30,34 +30,38 @@ model-viewer {
   vertical-align: middle;
 }
 
-.btn-5 {
-  background-image: linear-gradient(to right, #50C9C3 0%, #96DEDA 51%, #50C9C3 100%);
-  margin: 5px;
-  padding: 5px 20px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  color: white;
-  border-radius: 10px;
-  display: block;
-  border-width: 0px !important;
-}
-
-.btn-5:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-}
-
 .container-btn {
   background-color: transparent;
   position: fixed;
   z-index: 999;
   top: 0px;
   left: 0px;
+  width: 100%;
+}
+
+.home-btn {
+  position: relative;
+  display: block;
+  float: right;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  border-width: 0;
+  background-color: transparent;
+  color: white;
+  margin-right: 17px
+}
+
+.home-info {
+  position: relative;
+  display: block;
+  margin: 17px;
+  float: right;
+  font-weight: 1000;
 }
 
 .rot-info {
+  display: block;
   margin: 17px;
   float: left;
   font-weight: 1000;
@@ -173,7 +177,8 @@ model-viewer {
 #my_modal {
   display: none;
   width: 700px;
-  padding: 200px 60px;
+  height: 700px;
+  padding: 60px 60px;
   background-color: #fefefe;
   border: 1px solid #888;
   border-radius: 3px;
@@ -195,4 +200,32 @@ model-viewer {
   100% {
     opacity: 1;
   }
+}
+
+/* 핫스팟 버튼 */
+.btn-5 {
+  width: 90px;
+  height: 30px;
+  color: #fff;
+  background: #708090;
+  font-size: 13.5px;
+  font-family: 'Jua', sans-serif;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+  transition: 0.3s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-5:focus {
+  outline: 0;
+}
+
+.btn-5:hover {
+  background: #5D6D7E;
+  cursor: pointer;
+  box-shadow: #696969;
 }
