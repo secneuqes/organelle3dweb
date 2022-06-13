@@ -42,11 +42,11 @@
         environment-image="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="35.19deg 51.2deg auto"
         field-of-view="90deg" auto-rotate>
         <div class="container-btn">
-            <label class="rot-info">AUTO-ROTATION</label>
+            <label class="rot-info" for="cb3">AUTO-ROTATION</label>
             <input class="tgl tgl-skewed" id="cb3" type="checkbox" onclick="rotationOn(this)" checked />
             <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb3"></label>
-            <label class="home-info">HOME-POSITION</label>
-            <button class="home-btn" onclick="returnHome()"><i class="fa-solid fa-house"></i></button>
+            <label class="home-info" for="homebtn">HOME-POSITION</label>
+            <button class="home-btn" id="homebtn"onclick="returnHome()"><i class="fa-solid fa-house"></i></button>
             <button class="help-btn" onclick="showManual()"><i class="fa-solid fa-circle-info"></i></button>
         </div>
         <button class="Hotspot custom-btn btn-5" slot="hotspot-1"
